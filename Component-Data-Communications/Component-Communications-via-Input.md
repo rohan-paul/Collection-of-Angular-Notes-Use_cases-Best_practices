@@ -30,6 +30,10 @@ See that the way a prop is passed from the parent.component.html is using the sy
 
 `[prop]="prop"`
 
+To compare with React it would be like
+
+`<ChildComp firstName={firstName}>`
+
 ```js
 <app-child [Message]="Message"></app-child>
 
@@ -57,9 +61,11 @@ export class ChildComponent {
 
 #### child.component.html
 
-```js
-<h1>Message from Parent : {{Message}}<h1>
-
+```html
+<h1>
+  Message from Parent : {{Message}}
+  <h1></h1>
+</h1>
 ```
 
 #### Further Reading
