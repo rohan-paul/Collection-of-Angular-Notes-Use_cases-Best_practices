@@ -101,7 +101,89 @@ And the corresponding template, where I am using the pipe ("|") and async to sub
 </ul>
 ```
 
-Please note the dollar sign. Using the dollar sign in the name of a variable that is an observable, is considered best practice. This way it’s easy to identify if your variable is an observable or not.
+**Note the dollar sign. Using the dollar sign in the name of a variable that is an observable, is considered best practice. This way it’s easy to identify if your variable is an observable or not.**
+
+## Key Points about Observables
+
+- 1. Observables are not executed until a consumer subscribes. The subscribe() executes the defined behavior once, and it can be called again. Each subscription has its own computation. Resubscription causes recomputation of values.
+
+### Manner 2:
+
+We subscribe to the observable ourselves using the actual subscribe() method. This can be handy if you would first like to do something with the data before displaying it. The downside is that you have to manage the subscription yourself.
+
+```js
+import { Component } from "@angular/core"
+
+// client
+import { HttpClient } from "../services/client"
+
+// interface
+import { IUser } from "../services/interfaces"
+
+@Component({
+    selector: "user-list",
+    templateUrl:  "./template.html",
+})
+export class UserList {
+
+    public users: IUser[]
+
+    constructor(
+        public client: HttpClient,
+    ) {}
+
+    // do a call to fetch the users on init of component
+    // we manually subscribe to this method and take the users
+    // in our callback
+    public ngOnInit() {
+        this.client.fetchUsers().subscribe((users: IUser[]) => {
+
+            // do stuff with our data here.
+            // ....
+
+            // asign data to our class property in the end
+            // so it will be available to our template
+            this.users = users
+        })
+    }
+}
+
+```
+
+And then the template
+
+```html
+<ul class="user__list" *ngIf="users.length">
+  <li class="user" *ngFor="let user of users">
+    {{ user.name }} - {{ user.birth_date }}
+  </li>
+</ul>
+```
+
+As you can see the template logic is quite similar, the component logic can actually become much different and more complex if you go for manner 2. In general, for simple projects and component, I would recommend to choose manner 1. As this is the most easy and you don’t have to manually manage your subscriptions. **Keeping your subscriptions open while not using them is a memory leak and therefore not good.**
+
+### Creating an observable yourself
+
+Now that you know how to deal with common observables that are given to you by Angular, it’s good to know how you create an observable yourself. The simplest version looks like this:
+
+Observable.ts
+
+```js
+import { Observable } from "rxjs/Observable"
+
+// create observable
+const simpleObservable = new Observable((observer) => {
+  // observable execution
+  observer.next("bla bla bla")
+  observer.complete()
+})
+
+// subscribe to the observable
+simpleObservable.subscribe()
+
+// dispose the observable
+simpleObservable.unsubscribe()
+```
 
 #### Further Reading
 
