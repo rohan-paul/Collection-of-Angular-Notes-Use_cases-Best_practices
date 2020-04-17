@@ -185,6 +185,47 @@ simpleObservable.subscribe()
 simpleObservable.unsubscribe()
 ```
 
+It would be better to handle the subscription in the parent component itself:
+
+```js
+// GOOD
+// app.component.ts
+@Component({
+    selector: 'app',
+    template: `
+        <user-detail [user]="user$|async"></user-detail>
+    `
+})
+class AppComponent implements OnInit {
+    users$: Observable<User[]> = this.http.get(...);
+    user: User;
+    ngOnInit(){
+        // the app component (smart) subscribes to the user$ which will
+        // do an XHR call here
+        this.users$ = this.http.get(...);
+    }
+    ...
+}
+
+// user-detail.component.ts
+@Component({
+    selector: 'user-detail',
+    template: `
+
+    `
+})
+class UserDetailComponent {
+    // This component doesn't even know that we are using RxJS which
+    // results in better decoupling
+    @Input() user: User;
+}
+
+```
+
+The responsibility of the component is clear. The user-detail is meant to be dumb and is completely decoupled from its parent.
+
+There are however situations where we would like to create a stream from an input. In that case we could take a look at this library: ngx-reactivetoolkit
+
 #### Further Reading
 
 1. [understanding-creating-and-subscribing-to-observables-in-angular-426dbf0b04a3](https://medium.com/@luukgruijs/understanding-creating-and-subscribing-to-observables-in-angular-426dbf0b04a3)
