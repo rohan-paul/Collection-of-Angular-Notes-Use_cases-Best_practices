@@ -185,7 +185,7 @@ simpleObservable.subscribe()
 simpleObservable.unsubscribe()
 ```
 
-It would be better to handle the subscription in the parent component itself:
+#### It would be better to handle the subscription in the parent component itself:
 
 ```js
 // GOOD
