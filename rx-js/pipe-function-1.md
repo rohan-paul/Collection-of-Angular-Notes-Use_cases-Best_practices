@@ -1,4 +1,4 @@
-First note, that the concepts pipe in the context of Angular and RxJS
+First note the difference between concepts pipe in the context of Angular and RxJS
 
 We have pipes concept in Angular and pipe() function in RxJS.
 
@@ -10,17 +10,19 @@ We have pipes concept in Angular and pipe() function in RxJS.
 The pipe() function takes as its arguments the functions you want to combine, and returns a new function that, when executed, runs the composed functions in sequence.
 [https://angular.io/guide/rx-library](https://angular.io/guide/rx-library) (search for pipes in this URL, you can find the same)
 
+pipe() is a function/method that is used to chain multiple RxJS operators while map() and filter() are operators that operate and transform the values of an Observable (sequence of values). They are similar to the map() and filter() methods of JavaScript arrays.
+
 What does this pipe() function exactly mean in this case?
 
 ```js
 return (
-	this.http.get <
-	Hero >
-	url.pipe(
-		tap(_ => this.log(`fetched hero id=${id}`)),
-		catchError(this.handleError < Hero > `getHero id=${id}`)
-	)
-);
+  this.http.get <
+  Hero >
+  url.pipe(
+    tap((_) => this.log(`fetched hero id=${id}`)),
+    catchError(this.handleError < Hero > `getHero id=${id}`),
+  )
+)
 ```
 
 The pipe() in above example is the pipe() method of RxJS 5.5 (RxJS is the default for all Angular apps).

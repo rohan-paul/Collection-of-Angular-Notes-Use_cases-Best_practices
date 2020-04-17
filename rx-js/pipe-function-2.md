@@ -37,10 +37,6 @@ const transformNumbers = pipe(
   map((x) => x * x),
   filter((x) => x % 2 === 0),
 )
-
-transformNumbers(
-  numbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumbernumber\$,
-).subscribe(console.log)
 ```
 
 And the result is exactly the same.
