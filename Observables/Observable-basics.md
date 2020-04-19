@@ -2,6 +2,14 @@ Observable isn’t an Angular specific feature, but a new standard for managing 
 
 Most simply, **observables** are lazy collections of multiple values over time.
 
+Instead of thinking about it as a singular event or piece of data that we use at a single point in time, I think about it as a collection of events or pieces of data over a period of time.
+
+"A stream is a sequence of data elements made available over time".
+
+If you are used to utilizing promises or something more obscure you will most likely implement code that is only run once and then succeed or fail.
+
+Observables, on the other hand, are data streams. They can keep emitting values and any subscriptions will receive and process them separately at the time they each arrive.
+
 **Observables are lazy**
 
 You could think of lazy observables as newsletters. For each subscriber a new newsletter is created. They are then only send to those people, and not to anyone else.

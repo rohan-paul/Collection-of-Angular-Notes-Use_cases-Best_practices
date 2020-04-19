@@ -56,3 +56,7 @@ hot.connect()
 /// Subscriber A: 0.7122882102
 /// Subscriber B: 0.7122882102
 ```
+
+#### Further Reading
+
+[https://fireship.io/lessons/rxjs-basic-pro-tips/](https://fireship.io/lessons/rxjs-basic-pro-tips/)
