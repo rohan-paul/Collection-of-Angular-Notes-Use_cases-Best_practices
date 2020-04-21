@@ -4,6 +4,8 @@
 
 **Hot Observables** are always being updated with new values, like a live stream on YouTube. When you subscribe you start with the most recent value and only see future changes.
 
+Another way to think of this - An Observable is called a “cold” Observable if it does not begin to emit items until an observer has subscribed to it; an Observable is called a “hot” Observable if it may begin emitting items at any time, and a subscriber may begin observing the sequence of emitted items at some point after its commencement, missing out on any items emitted previously to the time of the subscription.
+
 #### Cold Observable Example
 
 We know an Observable is cold if we subscribe at the same time, but get a different value.

@@ -4,6 +4,8 @@ Observable isn’t an Angular specific feature, but a new standard for managing 
 
 **If you are used to utilizing promises or something more obscure you will most likely implement code that is only run once and then succeed or fail. Observables, on the other hand, are data streams. They can keep emitting values and any subscriptions will receive and process them separately at the time they each arrive.**
 
+Observables are declarative—that is, you define a function for publishing values, but it is not executed until a consumer subscribes to it. The subscribed consumer then receives notifications until the function completes, or until they unsubscribe.
+
 **Observables are lazy**
 
 You could think of lazy observables as newsletters. For each subscriber a new newsletter is created. They are then only send to those people, and not to anyone else.
@@ -231,3 +233,5 @@ There are however situations where we would like to create a stream from an inpu
 #### Further Reading
 
 1. [understanding-creating-and-subscribing-to-observables-in-angular-426dbf0b04a3](https://medium.com/@luukgruijs/understanding-creating-and-subscribing-to-observables-in-angular-426dbf0b04a3)
+
+2. [https://angular.io/guide/observables](https://angular.io/guide/observables)
