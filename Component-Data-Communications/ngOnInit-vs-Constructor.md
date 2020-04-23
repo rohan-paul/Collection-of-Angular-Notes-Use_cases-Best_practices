@@ -39,7 +39,7 @@ So you should use constructor() to setup Dependency Injection and not much else.
 **[angular.io/api/core/OnInit](https://angular.io/api/core/OnInit)**
 
 ngOnInit()
-mode_edit code
+
 A callback method that is invoked immediately after the default change detector has checked the directive's data-bound properties for the first time, and before any of the view or content children have been checked. It is invoked only once when the directive is instantiated.s
 
 Let’s put it all together and see them both in action:
@@ -67,3 +67,7 @@ countSamples() {
 ```
 
 In this example we are injecting the dependency myService. You should not confuse this with MyService (note the uppercase ‘M’) which is the type of the service. Then we are calling the method myService.getSamples() which will resolve with an array. In our ngOnInit() method we call the function this.countSamples() which is able to work with the (already initialized and resolved) fields this.samples and this.sentence. We can see that countSamples() simply appends the length of this.samples to the string this.sentence.
+
+#### Lastly take a look at the comparison between lifecycle hooks between React and Angular
+
+<img src="./lifecycle-methods-ng-and-react.png">
