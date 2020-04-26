@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 }
 ```
 
-In the example above, ngAfterViewInit() gets called one time after ngDoCheck.
+In the example above, **ngAfterViewInit()** gets called one time after **ngDoCheck**.
 
 Triggering the clickMe() function WILL NOT trigger ngAfterViewInit().
 

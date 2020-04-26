@@ -1,7 +1,7 @@
 What are decorators?
 [docs.angularjs.org/guide/decorators](https://docs.angularjs.org/guide/decorators)
 
-Decorators are a design pattern that is used to separate modification or decoration of a class without modifying the original source code. In AngularJS, decorators are functions that allow a service, directive or filter to be modified prior to its usage.
+Decorators are a design pattern that is used to separate modification or decoration of a class without modifying the original source code. In Angular, decorators are functions that allow a service, directive or filter to be modified prior to its usage.
 
 In angular you create classes for everything, be it components, services, directives, etc.
 
@@ -20,15 +20,16 @@ Offers flexible alternative to sub-classing for extending functionality
 
 **There are four main types of decorators:**
 
-Class decorators, e.g. @Component and @NgModule
+**Class decorators**, e.g. @Component and @NgModule
 
-Property decorators for properties inside classes, e.g. @Input and @Output
+**Property decorators** for properties inside classes, e.g. @Input and @Output
 
-Method decorators for methods inside classes, e.g. @HostListener
+**Method decorators** for methods inside classes, e.g. @HostListener
 
-Parameter decorators for parameters inside class constructors, e.g. @Inject
+**Parameter decorators** for parameters inside class constructors, e.g. @Inject
+**@ContentChildren** is also a parameter decorator that is used to fetch the QueryList of elements or directives from the content DOM. The QueryList is updated whenever the child element/component is added or removed.
 
-Notice the () on @Component which is a Class Decorators. This means that the @Component is called once JavaScript encounters @Component(). In turn, this means that there must be a Component function somewhere that returns a function matching one of the decorator signatures outlined above. This is an example of the decorator factory pattern.
+Notice the () on **@Component** which is a Class Decorators. This means that the @Component is called once JavaScript encounters @Component(). In turn, this means that there must be a Component function somewhere that returns a function matching one of the decorator signatures outlined above. This is an example of the decorator factory pattern.
 
 [ultimatecourses.com/blog/angular-decorators](https://ultimatecourses.com/blog/angular-decorators)
 
