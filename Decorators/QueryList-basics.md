@@ -1,6 +1,8 @@
 ### QueryList —
 
-The return type of **ViewChildren** is **QueryList**. **QueryList** is just a fancy name for an object that stores a list of items. What is special about this object is when the state of the application changes Angular will automatically update the object items for you.
+The return type of **ViewChildren** is **QueryList**.
+
+**QueryList** is just a fancy name for an object that stores a list of items. What is special about this object is when the state of the application changes Angular will automatically update the object items for you.
 
 The type of object that ViewChildren, ContentChildren, and QueryList provide.
 

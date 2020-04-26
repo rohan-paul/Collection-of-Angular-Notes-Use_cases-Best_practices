@@ -2,9 +2,9 @@
 
 **ngOnInit()** is called right after the directive's data-bound properties have been checked for the first time, and before any of its children have been checked. It is invoked only once when the directive is instantiated.
 
-**ngAfterViewInit()** is called once after ngAfterContentChecked(). ngAfterViewInit() is called after all child components are initialized and checked.
+**ngAfterViewInit()** is called once after **ngAfterContentChecked()**. ngAfterViewInit() is called after all child components are initialized and checked.
 
-ngAfterViewInit() is called after the view is initially rendered. This is why @ViewChild() depends on it. You can't access view members before they are rendered.
+**ngAfterViewInit()** is called after the view is initially rendered. This is why @ViewChild() depends on it. You can't access view members before they are rendered.
 
 When I say rendered - It means, it's added to the DOM. If you set `display: hidden` it's till rendered, but not visible on the screen. But if you investigate the DOM using the browsers devtools, you'll be able to see the markup.
 
