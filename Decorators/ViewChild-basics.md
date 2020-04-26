@@ -1,6 +1,8 @@
-The @ViewChild and @ViewChildren decorators in Angular provide a way to access and manipulate DOM elements, directives and components. In this tutorial, we'll see an Angular 9 example of how to use the two decorators.
+The** @ViewChild** and** @ViewChildren** decorators in Angular provide a way to access and manipulate DOM elements, directives and components. In this tutorial, we'll see an Angular 9 example of how to use the two decorators.
 
-You can use ViewChild if you need to query one element from the DOM and ViewChildren for multiple elements.
+**You can use ViewChild if you need to query one element from the DOM and ViewChildren for multiple elements. In other words, they behave the same, only the former returns one reference, while the latter returns multiple references as a QueryList object.**
+
+**Usually, these decorators are paired with template reference variables. A template reference variable is simply a named reference to a DOM element within a template. You can view it as something similar to the id attribute of an html element. You mark a DOM element with a template reference and then query it inside a class using the ViewChild decorator.**
 
 #### What's ViewChild in Angular?
 
@@ -43,7 +45,7 @@ export class AppComponent implements AfterViewInit {
 }
 ```
 
-Now in the console (browser dev-tool), you should get Hello Angular:
+Now in the console (browser dev-tool), you should get `Hello Angular`:
 
 Now, let's explain the code.
 

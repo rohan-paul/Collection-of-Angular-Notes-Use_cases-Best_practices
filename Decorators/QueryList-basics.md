@@ -2,6 +2,12 @@
 
 The return type of **ViewChildren** is **QueryList**.
 
+**QueryList** is an unmodifiable list of items that Angular keeps up to date when the state of the application changes.
+
+A "**QueryList**,", is a live list of directive and variable bindings contained within a directive. In laymen's terms, its a collection of references to rendered items within the DOM (Document Object Model) tree. The QueryList is an unmodifiable iterator of the current references.
+
+"Unmodifiable" is not the same as "immutable." In fact, the QueryList is a mutable data structure for which the Angular framework manages the state. This is why changes to the underlying DOM references can be observed on the same QueryList instance.
+
 **QueryList** is just a fancy name for an object that stores a list of items. What is special about this object is when the state of the application changes Angular will automatically update the object items for you.
 
 The type of object that ViewChildren, ContentChildren, and QueryList provide.
