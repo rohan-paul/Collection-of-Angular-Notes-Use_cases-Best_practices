@@ -2,7 +2,7 @@
 
 **ngOnInit()** is called right after the directive's data-bound properties have been checked for the first time, and before any of its children have been checked. It is invoked only once when the directive is instantiated.
 
-**ngAfterViewInit()** is called once after **ngAfterContentChecked()**. ngAfterViewInit() is called after all child components are initialized and checked.
+**ngAfterViewInit()** is called once after **ngAfterContentChecked()**. `ngAfterViewInit()` is called after all child components are initialized and checked.
 
 **ngAfterViewInit()** is called after the view is initially rendered. This is why @ViewChild() depends on it. You can't access view members before they are rendered.
 
@@ -11,6 +11,13 @@ When I say rendered - It means, it's added to the DOM. If you set `display: hidd
 **ngAfterViewInit()** is called after a component's view, and its children's views, are created. Its a lifecycle hook that is called after a component's view has been fully initialized.
 
 \*\* ngAfterViewInit() is called when the bindings of the children directives (or components) have been checked for the first time. Hence its perfect for accessing and manipulating DOM with Angular 2 components.
+
+#### ngAfterContentInit vs ngAfterViewInit
+
+Content is what is passed as children usually to be projected at some <ng-content> element of a component.
+View is the template of the current component.
+
+**The view is initialized after the content and `ngAfterViewInit()` is therefore called after `ngAfterContentInit()`**
 
 #### When should you use ngAfterViewInit?
 
