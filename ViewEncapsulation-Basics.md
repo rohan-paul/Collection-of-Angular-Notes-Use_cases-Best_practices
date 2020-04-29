@@ -2,17 +2,9 @@
 
 The Emulated mode is the default one. This allows that styles from main HTML propagate to the component but styles defined in this component's @Component decorator are scoped to this component only.
 
-The key point is
-
-**ViewEncapsulation.None** - No Shadow DOM, hence, no style encapsulation.
-
-**ViewEncapsulation.Emulated** - No Shadow DOM but emulated style encapsulation.
-
-**ViewEncapsulation.Native** - Proper Native Shadow DOM.
-
 #### ViewEncapsulation.None
 
-In the **None** mode, styles from the component propagate back to the main HTML and therefore are visible to all components on the page. Be careful with apps that have None components in the application.
+In the None mode, styles from the component propagate back to the main HTML and therefore are visible to all components on the page. Be careful with apps that have None components in the application.
 
 Since the default view encapsulation mode in Angular is Emulated, for us to specify a different mode in your components, we have to do like this:
 
@@ -82,7 +74,7 @@ Let us start with ViewEncapsulation.None, in this option:
     1. There is no shadow DOM.
     2. Style is not scoped to the component.
 
-**As you run the application, you will find h1 style has applied to both components, even though we only set style the in AppComponent. This happened because in AppComponent we have set the encapsulation property to ViewEncapsulation.None.**
+**As you run the application, you will find h1 style has applied to both components, even though we only set style the in AppComponent. This happened because in AppComponent we have set the encapsulation property to ViewEncapsulation.None. ViewEncapsulation.None bubbles up to the whole application, so if you are going with this solution is may be a good idea to wrap your CSS with a wrapper class.**
 
 ```js
 @Component({
@@ -104,31 +96,27 @@ In AppChildComponent, we are also using the h1 tag. To understand different View
 
 **Therefore, in ViewEncapsulation.None, the style gets moved to the DOM's head section and is not scoped to the component. There is no Shadow DOM for the component and the component style can affect all nodes in the DOM.**
 
-### ::ng-deep going to be deprecated - Any alternatives?
+### Using /deep/ when ViewEncapsulation.None will NOT allow you a component's local css to be applied
 
-The only way forward without using that operator in your CSS is to completely opt out of letting Angular manage the style encapsulation for your component by doing this:
+Here I am trying modify the color a mat-slide-toggle component, when its checked / toggled position
 
-```js
-import { ViewEncapsulation } from '@angular/core';
-
-@Component({
-    ...
-    encapsulation: ViewEncapsulation.None
-})
-```
-
-**If you do this, your styles become global though, so make sure you prepend each style rule with your component to make sure that they don't leak beyond that. This will make the .scss styles in this component global to the whole application.** For example, if you have a MyCustomComponent component with a selector of my-custom-component:
+If the below does not work
 
 ```css
-my-custom-component button {
-	...;
-} /* good */
-button {
-	...;
-} /* bad */
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+	background-color: rgba(147, 1, 41, 0.54);
+}
 ```
 
-After scouring through the actual notes from the committee meetings on this stuff, it doesn't look like there is an alternative put forward yet. Using the ::ng-deep syntax ensures that you let Angular take care of breaking out of the style encapsulation (for DOM nodes in child components in your template) that they are doing for your styles (and not using browser native features, making it more future-proof obviously).
+Then just do this
+
+```css
+/deep/ .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+	background-color: rgba(147, 1, 41, 0.54);
+}
+```
+
+**Use the /deep/ shadow-piercing descendant combinator to force a style down through the child component tree into all the child component views. The /deep/ combinator works to any depth of nested components, and it applies to both the view children and content children of the component.**
 
 #### Further Reading
 
