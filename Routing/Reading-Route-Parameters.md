@@ -17,6 +17,8 @@ export const routes: Routes = [
 ```
 
 Note `:id` in the path of the product-details route, which places the parameter in the path. For example, to see the product details page for product with ID 5, you must use the following URL: localhost:3000/product-details/5
+we know it’s a variable since it begins with a colon :
+A path can have any number of variables as long as they all start with : and have different names.
 
 Linking to Routes with Parameters
 In the ProductList component you could display a list of products. Each product would have a link to the product-details route, passing the ID of the product:

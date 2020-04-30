@@ -10,7 +10,7 @@ When I say rendered - It means, it's added to the DOM. If you set `display: hidd
 
 **ngAfterViewInit()** is called after a component's view, and its children's views, are created. Its a lifecycle hook that is called after a component's view has been fully initialized.
 
-\*\* ngAfterViewInit() is called when the bindings of the children directives (or components) have been checked for the first time. Hence its perfect for accessing and manipulating DOM with Angular 2 components.
+**ngAfterViewInit()** is called when the bindings of the children directives (or components) have been checked for the first time. Hence its perfect for accessing and manipulating DOM with Angular 2 components.
 
 #### ngAfterContentInit vs ngAfterViewInit
 
@@ -26,26 +26,26 @@ ngAfterViewInit is useful when you want to call a lifecycle hook after all child
 Lets see and example
 
 ```js
-import { Component, OnInit, DoCheck, AfterViewInit } from "@angular/core"
+import { Component, OnInit, DoCheck, AfterViewInit } from "@angular/core";
 
 @Component({
   selector: "app-home",
   template: `<a (click)="clickMe()">Click me</a>`,
-  styleUrls: ["./home.component.css"],
+  styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
   constructor() {}
   ngOnInit() {
-    console.log("onInit called")
+    console.log("onInit called");
   }
   ngDoCheck() {
-    console.log("do check")
+    console.log("do check");
   }
   ngAfterViewInit() {
-    console.log("after view init")
+    console.log("after view init");
   }
   clickMe() {
-    console.log("link clicked")
+    console.log("link clicked");
   }
 }
 ```

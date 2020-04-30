@@ -19,7 +19,7 @@ Angular, or better Dependency Injector (DI), analyses the constructor parameters
 
 ### NgOnInit
 
-- **ngOnChanges is called when an input or output binding value changes**
+- **ngOnChanges is called when an @Input or output binding value changes**
 - **ngOnInit is called after the first ngOnChanges**
 
 #### Now when does `ngOnChanges` is called
@@ -32,7 +32,7 @@ When Angular calls **ngOnInit** it has finished creating a component DOM, inject
 
 It’s a common practice to use `ngOnInit` to perform initialization logic even if this logic doesn’t depend on DI, DOM or input bindings.
 
-Mostly we use ngOnInit for all the initialization/declaration and avoid stuff to work in the constructor. The constructor should only be used to initialize class members but shouldn't do actual "work".
+Mostly we use **ngOnInit** for all the initialization/declaration and avoid stuff to work in the constructor. The constructor should only be used to initialize class members but shouldn't do actual "work".
 
 So you should use constructor() to setup Dependency Injection and not much else. ngOnInit() is better place to "start" - it's where/when components' bindings are resolved.
 
