@@ -2,6 +2,8 @@ Observable isn’t an Angular specific feature, but a new standard for managing 
 
 **Most simply, **observables** are lazy collections of multiple values over time. Instead of thinking about it as a singular event or piece of data that we use at a single point in time, it should be thought about as a collection of events or pieces of data over a period of time. "A stream is a sequence of data elements made available over time".**
 
+#### Observable is an abstraction of asynchronous stream of data. For example, when we look at Observable<string>, it represents a stream of strings which will be delivered one by one over the time.
+
 **If you are used to utilizing promises or something more obscure you will most likely implement code that is only run once and then succeed or fail. Observables, on the other hand, are data streams. They can keep emitting values and any subscriptions will receive and process them separately at the time they each arrive.**
 
 Observables are declarative—that is, you define a function for publishing values, but it is not executed until a consumer subscribes to it. The subscribed consumer then receives notifications until the function completes, or until they unsubscribe.
@@ -99,9 +101,9 @@ And the corresponding template, where I am using the pipe ("|") and async to sub
 ```html
 <!-- We use the async pipe to automatically subscribe/unsubscribe to our observable -->
 <ul class="user__list" *ngIf="(users$ | async).length">
-  <li class="user" *ngFor="let user of users$ | async">
-    {{ user.name }} - {{ user.birth_date }}
-  </li>
+    <li class="user" *ngFor="let user of users$ | async">
+        {{ user.name }} - {{ user.birth_date }}
+    </li>
 </ul>
 ```
 
@@ -109,7 +111,7 @@ And the corresponding template, where I am using the pipe ("|") and async to sub
 
 ## Key Points about Observables
 
-- 1. Observables are not executed until a consumer subscribes. The subscribe() executes the defined behavior once, and it can be called again. Each subscription has its own computation. Resubscription causes recomputation of values.
+-   1. Observables are not executed until a consumer subscribes. The subscribe() executes the defined behavior once, and it can be called again. Each subscription has its own computation. Resubscription causes recomputation of values.
 
 ### Manner 2:
 
@@ -158,9 +160,9 @@ And then the template
 
 ```html
 <ul class="user__list" *ngIf="users.length">
-  <li class="user" *ngFor="let user of users">
-    {{ user.name }} - {{ user.birth_date }}
-  </li>
+    <li class="user" *ngFor="let user of users">
+        {{ user.name }} - {{ user.birth_date }}
+    </li>
 </ul>
 ```
 
@@ -173,20 +175,20 @@ Now that you know how to deal with common observables that are given to you by A
 Observable.ts
 
 ```js
-import { Observable } from "rxjs/Observable"
+import { Observable } from "rxjs/Observable";
 
 // create observable
-const simpleObservable = new Observable((observer) => {
-  // observable execution
-  observer.next("bla bla bla")
-  observer.complete()
-})
+const simpleObservable = new Observable(observer => {
+    // observable execution
+    observer.next("bla bla bla");
+    observer.complete();
+});
 
 // subscribe to the observable
-simpleObservable.subscribe()
+simpleObservable.subscribe();
 
 // dispose the observable
-simpleObservable.unsubscribe()
+simpleObservable.unsubscribe();
 ```
 
 #### It would be better to handle the subscription in the parent component itself:

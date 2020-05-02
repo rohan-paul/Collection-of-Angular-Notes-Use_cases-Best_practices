@@ -19,7 +19,7 @@ An Observable calls this method after it has called onNext for the final time, i
 
 ### Difference between the methods .pipe() and .subscribe() on a RXJS observable
 
-First, consider this function deposit() - It returns the Subscription object created when you called Subscribe.
+First, consider this function deposit() - It returns the Subscription object, becuase thats what is created when you call a `.subscribe()`.
 
 ```ts
     deposit(account, amount){
