@@ -16,3 +16,35 @@ An Observable calls this method to indicate that it has failed to generate the e
 **onCompleted**
 
 An Observable calls this method after it has called onNext for the final time, if it has not encountered any errors.
+
+### Difference between the methods .pipe() and .subscribe() on a RXJS observable
+
+First, consider this function deposit() - It returns the Subscription object created when you called Subscribe.
+
+```ts
+    deposit(account, amount){
+    return this.http.get('url')
+    .subscribe(res => {
+        return res;
+    }
+}
+```
+
+And now with .pipe()
+
+```ts
+    deposit(account, amount){
+    return this.http.get('url')
+    .pipe(
+        map(res => {
+            return res;
+        });
+    );
+}
+```
+
+In the second case, while using pipe, if you do not subscribe, nothing happens. pipe just combines several operators together. The second example return an Observable, but it does not execute. So if I want to actually get the emitted value of the Observable, then I have to use `.subscirbe()` after using `.pipe()`
+
+The pipe method is for chaining observable operators, and the subscribe is for activating the observable and listening for emitted values.
+
+The pipe method was added to allow webpack to drop unused operators from the final JavaScript bundle. It makes it easier to build smaller files.
