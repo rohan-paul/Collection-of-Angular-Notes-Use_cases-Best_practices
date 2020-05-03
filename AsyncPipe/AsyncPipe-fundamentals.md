@@ -17,6 +17,14 @@ With AsyncPipe we can use promises and observables directly in our template, wit
 
 AsyncPipe accepts as argument an observable or a promise, calls subcribe or attaches a then handler, then waits for the asynchronous result before passing it through to the caller.
 
+## Why use the async pipe ?
+
+#### Because it automatically subscribes and unsubscribes from Observables as the component gets instantiated or destroyed, which is a great feature.
+
+#### This is especially important in the case of long-lived observables like for example certain Observables returned by the router or by AngularFire.
+
+#### Also because it makes our programs easier to read and more declarative, with fewer state variables in our component classes.
+
 #### Further Reading
 
 [https://malcoded.com/posts/angular-async-pipe/](https://malcoded.com/posts/angular-async-pipe/)
