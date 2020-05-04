@@ -92,3 +92,7 @@ By using AsyncPipe we:
 -   1. Don’t need to call subscribe on our observable and store the intermediate data on our component.
 -   2.Don't need to remember to unsubscribe from the observable when the component is destroyed.
 -   3. So less number of states variables
+
+#### Further Reading
+
+[https://codecraft.tv/courses/angular/pipes/async-pipe/](https://codecraft.tv/courses/angular/pipes/async-pipe/)
