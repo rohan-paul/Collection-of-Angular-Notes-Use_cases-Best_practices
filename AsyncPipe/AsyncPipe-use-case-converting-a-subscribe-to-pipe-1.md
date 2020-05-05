@@ -16,13 +16,12 @@ import {
   arrayListFromSelector$: Observable<Role[]>;
   arrayListFromSelector: Role[];
 
-   this.trackSubscription(
       this.arrayListFromSelector$
         .pipe(map(value => value))
         .subscribe(roles => {
           this.arrayListFromSelector = roles;
         })
-    );
+
 
 // And then in .html template passing to the Child as below
 <some-child-component
