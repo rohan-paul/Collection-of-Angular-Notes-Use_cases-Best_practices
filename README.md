@@ -1,1 +1,1 @@
-<img src="./angular.jpg">
+<img src="./angular.png">
