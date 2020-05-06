@@ -7,10 +7,12 @@ So in the below case, `arrayListFromSelector$` is comding from selector (using r
 Initially I was subscribing to a selector coming from reselect/redux. And the below code was perfectly working and I was getting
 `arrayListFromSelector$` in the child component to be consumed.
 
+### Inital working code with .subscribe()
+
 ```ts
 import {
   rolesSelector
-} from "../selectors/roles-and-policies.selector";
+} from "../selectors/roles-selectors.selector";
 
   @select(rolesSelector)
   arrayListFromSelector$: Observable<Role[]>;
@@ -36,7 +38,22 @@ However, the recommended approach is - Your child component does not need to kno
 It should look like -
 In parent
 
+### Final working code WITHOUT .subscribe()
+
 ```ts
+// in the component.ts file
+import {
+  rolesSelector
+} from "../selectors/roles-selectors.selector";
+
+  @select(rolesSelector)
+  arrayListFromSelector$: Observable<Role[]>;
+  arrayListFromSelector: Role[];
+
+// And thats all its needed in the component.ts file
+
+// And then below is component.html
+// and here directly consume it in the template - component.html  file
 <some-child-component
 [arrayListFromSelector]="arrayListFromSelector$ | async"
 ><some-child-
