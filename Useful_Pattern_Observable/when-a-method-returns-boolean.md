@@ -58,3 +58,7 @@ method(): Observable<boolean> {
     });
 }
 ```
+
+#### Further Reading
+
+[https://stackoverflow.com/questions/42178383/type-boolean-is-not-assignable-to-type-observableboolean](https://stackoverflow.com/questions/42178383/type-boolean-is-not-assignable-to-type-observableboolean)
