@@ -1,3 +1,16 @@
+`combineLatest` creates a stream that will have a new value every time one of the source streams changes.
+
+[From Official Doc](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-combineLatest)
+
+**Combines multiple Observables to create an Observable whose values are calculated from the latest values of each of its input Observables. Whenever any input Observable emits a value, it computes a formula using the latest values from all the inputs, then emits the output of that formula.**
+
+**This is done by subscribing to each Observable, in order, and collecting an array of each of the most recent values any time any of the input Observables emits, then either taking that array and passing it as arguments to an optional project function and emitting the return value of that, or just emitting the array of recent values directly if there is no project function.**
+
+### combineLatest expects two arguments:
+
+1. List Of Observables
+2. Function
+
 General Syntax
 
 The new version of combineLatest() accepts an array of Observables as its argument:
@@ -60,3 +73,7 @@ this.mySomeOtherSelector$
       })
 
 ```
+
+#### Further Reading
+
+[https://scotch.io/tutorials/rxjs-operators-for-dummies-forkjoin-zip-combinelatest-withlatestfrom#toc-combinelatest-the-go-dutch-operator](https://scotch.io/tutorials/rxjs-operators-for-dummies-forkjoin-zip-combinelatest-withlatestfrom#toc-combinelatest-the-go-dutch-operator)
