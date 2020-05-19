@@ -1,4 +1,5 @@
-Another commonly used way to share data is by emitting data from Child to Parent. With this approach, it is easy to pass data by events such as button clicks. In the parent component, we have to create a method to receive the messages and in the child component, we declare a messageEvent variable with the @Output() decorator and set it equal to a new event emitter. After that, we can create a method to emit data and trigger it on a button click.
+Another commonly used way to share data is by emitting data from Child to Parent. With this approach, it is easy to pass data by events such as button clicks.
+In the parent component, we have to create a method to receive the messages and in the child component, we declare a messageEvent variable with the @Output() decorator and set it equal to a new event emitter. After that, we can create a method to emit data and trigger it on a button click.
 
 #### parent.component.ts
 
@@ -62,7 +63,7 @@ export class ChildComponent {
 <button (click)="sendMessage()">Send Message</button>
 ```
 
-#### What is the difference betwen @Input and @Output
+### What is the difference betwen @Input and @Output
 
 **@Input()** is to pass data In to the component
 
