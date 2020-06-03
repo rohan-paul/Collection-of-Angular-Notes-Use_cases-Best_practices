@@ -31,6 +31,8 @@ Angular embraces this approach and implements TemplateRef class to work with a t
     <span>I am span in template</span>
   </ng-template>`,
 })
+
+
 export class SampleComponent implements AfterViewInit {
   @ViewChild("tpl") tpl: TemplateRef<any>
 
