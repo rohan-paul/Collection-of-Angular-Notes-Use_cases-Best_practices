@@ -1,3 +1,16 @@
+First Whats a model in Angular
+
+
+The model in an MVC-based application is generally responsible for modeling the data used in the view and handling user interactions such as clicking on buttons, scrolling, or causing other changes in the view.
+
+#### Angular NgModel is an inbuilt directive that creates a FormControl instance from the domain model and binds it to a form control element. The ngmodel directive binds the value of HTML controls (input, select, textarea) to application data. 
+
+The FormControl instance tracks the value, user interaction, and validation status of the control and keeps the view synced with the model. If used within a parent form, the directive also registers itself with the form as a child control.
+
+This directive is used by itself or as part of a larger form. Use the ngModel selector to activate it.
+
+[Official Doc](https://angular.io/api/forms/NgModel)
+
 #### Difference between [(ngModel)] and [ngModel] for binding state to property?
 
 Angular2+ data flow:
@@ -33,5 +46,24 @@ The following syntax is used for 2-way data binding. It is basically a syntactic
     
 <input [(ngModel)]="overRideRate" type="text" >
 
-Now something changes inside our class this will reflect our view (model to view), and whenever the user changes the input the model will be updated (view to model). 
+#### Now something changes inside our class this will reflect our view (model to view), and whenever the user changes the input the model will be updated (view to model). 
 
+So in a single statement -
+
+[ngModel] evaluates the code and generates an output (without two-way binding).
+
+[(ngModel)] evaluates the code and generates an output and also enables two-way binding.
+
+
+A regular example from actual use-cases
+
+```js
+<ng-select
+      [items]="dropdownOptions"
+      bindLabel="displayValue"      
+      [(ngModel)]="ngSelectSelectedItem"      
+    >
+</ng-select>
+```
+
+As a background, by default `ng-select` binds to default `label` property for display, and keeps whole `object` as selected value
