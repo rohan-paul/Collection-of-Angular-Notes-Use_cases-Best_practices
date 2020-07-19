@@ -11,10 +11,10 @@ Initially I was subscribing to a selector coming from reselect/redux. And the be
 
 ```ts
 import {
-  rolesSelector
+  mySelector
 } from "../selectors/roles-selectors.selector";
 
-  @select(rolesSelector)
+  @select(mySelector)
   arrayListFromSelector$: Observable<Role[]>;
   arrayListFromSelector: Role[];
 
@@ -43,10 +43,10 @@ In parent
 ```ts
 // in the component.ts file
 import {
-  rolesSelector
+  mySelector
 } from "../selectors/roles-selectors.selector";
 
-  @select(rolesSelector)
+  @select(mySelector)
   arrayListFromSelector$: Observable<Role[]>;
   arrayListFromSelector: Role[];
 

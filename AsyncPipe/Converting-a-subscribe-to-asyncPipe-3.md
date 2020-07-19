@@ -94,11 +94,11 @@ Now if I want to pass the `expenses` list as a state down to a Child, we want to
 
 To summarize, those are the best practices to ensure validity of the logic:
 
-1.  Prefer assignments rather than callbacks, assign Observable rather than subscription,
-2.  Let the framework terminate the Observable
-3.  Leverage the power of Angular components and Angular async pipe to code without asynchronousy,
-4.  Use libraries like reselect, rxjs to manipulate observable,
-5.  Make sure the external variables used inside the rx operators function are const.
+1. Prefer assignments rather than callbacks, assign Observable rather than subscription,
+2. Let the framework terminate the Observable
+3. Leverage the power of Angular components and Angular async pipe to code without asynchronousy,
+4. Use libraries like reselect, rxjs to manipulate observable,
+5. Make sure the external variables used inside the rx operators function are const.
 
 ##### we should always use async pipe when possible and only use .subscribe when side effect is an absolute necessity as we are safe as long as we stay in the observable. The code terminating the observable should be the framework (Angular) and the last piece (the UI).
 

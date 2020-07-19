@@ -7,11 +7,11 @@ The async pipe subscribes to an Observable or Promise and returns the latest val
 
 Normally to render the result of a promise or an observable we have to:
 
--   1. Wait for a callback.
+- 1. Wait for a callback.
 
--   2. Store the result of the callback in a variable.
+- 2. Store the result of the callback in a variable.
 
--   3. Bind to that variable in the template.
+- 3. Bind to that variable in the template.
 
 With AsyncPipe we can use promises and observables directly in our template, without having to store the result on an intermediate property or variable.
 

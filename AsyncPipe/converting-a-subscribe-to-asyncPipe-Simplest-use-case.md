@@ -40,7 +40,6 @@ ngOnInit() {
 
     // And then in the corresponding .html tempale file, I will consume this subsribed data directly with asyncPipe
     [isSomeBooleanVarToPassDownToChildComp]="isSomeBooleanVarToPassDownToChildComp$ | async"
-
 ```
 
 In case I had to pipe something with the initial subscribed data I would have to do below
