@@ -8,6 +8,8 @@ messages$.pipe(debounceTime(0))
 
 This approach presumes that these messages come synchronously.
 
+Further I am just using one way of creating Observables with fromEvent method. But there are more! You could, for example, transform any Promise to an Observable automatically using fromPromise. There are also very useful bindCallback and bindNodeCallback methods.
+
 #### Further Reading
 
 [https://stackoverflow.com/questions/62964906/rxjs-disregard-all-but-the-last-message-while-a-webworker-is-cpu-bound](https://stackoverflow.com/questions/62964906/rxjs-disregard-all-but-the-last-message-while-a-webworker-is-cpu-bound)
