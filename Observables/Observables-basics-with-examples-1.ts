@@ -10,8 +10,8 @@ let a = new Observable((observer) => {
   console.log(1)
   observer.next(2)
 })
-// a.subscribe((result) => console.log(result))
-// a.subscribe((result) => console.log(result))
+a.subscribe((result) => console.log(result))
+a.subscribe((result) => console.log(result))
 
 /* OUTPUT of above
 1
@@ -28,7 +28,7 @@ let a2 = new Subject()
 let b = a2.pipe(tap(() => console.log("Side Effect")))
 b.subscribe((result) => console.log(result))
 b.subscribe((result) => console.log(result))
-console.log(1)
+// console.log(1)
 a2.next(2)
 
 /* OUTPUT of above

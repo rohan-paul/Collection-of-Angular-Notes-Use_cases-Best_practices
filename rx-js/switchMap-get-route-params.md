@@ -50,3 +50,9 @@ flatMap/mergeMap - creates an Observable immediately for any source item, al
 concatMap - waits for the previous Observable to complete before creating the next one
 switchMap - for any source item, completes the previous Observable and immediately creates the next one
 exhaustMap - source items are ignored while the previous Observable is not completed
+
+#### Further Reading
+
+[https://stackoverflow.com/questions/49698640/flatmap-mergemap-switchmap-and-concatmap-in-rxjs](https://stackoverflow.com/questions/49698640/flatmap-mergemap-switchmap-and-concatmap-in-rxjs)
+
+[https://stackoverflow.com/questions/42655134/angular-2-why-use-switchmap-when-retrieving-route-params](https://stackoverflow.com/questions/42655134/angular-2-why-use-switchmap-when-retrieving-route-params)
