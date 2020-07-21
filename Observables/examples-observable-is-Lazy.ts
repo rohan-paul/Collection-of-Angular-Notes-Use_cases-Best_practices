@@ -1,7 +1,7 @@
 import { Observable } from "rxjs"
 
 /* An observable is Lazy, Observables will only execute upon subscribe,
-And if you dont subscribe it will not start
+And if you don't subscribe it will not start
  */
 
 let a = new Observable((observer) => {
