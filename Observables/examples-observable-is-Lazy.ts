@@ -1,8 +1,8 @@
-import { Observable } from "rxjs"
-
 /* An observable is Lazy, Observables will only execute upon subscribe.
 And if you don't subscribe it will not start. As long as the observer didn't subscribe it, it doesn't emit any value. So I used the subscribe() function to subscribe to this Observable
  */
+
+import { Observable } from "rxjs"
 
 let a = new Observable((observer) => {
   setTimeout(() => observer.next(1), 1000)

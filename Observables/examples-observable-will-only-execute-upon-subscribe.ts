@@ -1,10 +1,8 @@
-import { Observable, Subject } from "rxjs"
-import { tap, delay } from "rxjs/operators"
-
 /**
- * Observables and Subjects
    Observables will only execute upon subscribe, and will re-execute every time they are subscribed.
  */
+
+import { Observable } from "rxjs"
 
 let a = new Observable((observer) => {
   console.log(1)
@@ -17,5 +15,4 @@ a.subscribe((result) => console.log(result))
 1
 2 first result
 1
-2 second result
 */
